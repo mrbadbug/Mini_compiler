@@ -7,7 +7,6 @@ This project is a simple compiler that supports:
 - Parentheses
 - Unary minus
 - print() statement
-- Comments (#)
 
 Built using:
 - Lexer
