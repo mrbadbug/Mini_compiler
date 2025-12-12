@@ -1,4 +1,3 @@
-# src/parser.py
 from typing import List, Tuple
 from ast_n import Number, Var, BinOp, Assign, Print
 
@@ -27,7 +26,7 @@ class Parser:
                 self.eat("NEWLINE")
                 continue
             stmts.append(self.parse_statement())
-            # optionally consume trailing NEWLINE or SEMICOLON
+
             if self.peek()[0] == "NEWLINE":
                 self.eat("NEWLINE")
             elif self.peek()[0] == "SEMICOLON":
@@ -42,7 +41,7 @@ class Parser:
             expr = self.parse_expr()
             return Assign(name, expr)
         elif tok[0] == "IDENT" and tok[1] == "print":
-            self.eat("IDENT")  # 'print'
+            self.eat("IDENT") 
             self.eat("LPAREN")
             expr = self.parse_expr()
             self.eat("RPAREN")
@@ -50,7 +49,6 @@ class Parser:
         else:
             raise SyntaxError(f"Unknown statement starting with {tok}")
 
-    # expr -> term (('+'|'-') term)*
     def parse_expr(self):
         node = self.parse_term()
         while self.peek()[0] in ("PLUS", "MINUS"):
@@ -60,7 +58,6 @@ class Parser:
             node = BinOp(node, op, right)
         return node
 
-    # term -> factor (('*'|'/') factor)*
     def parse_term(self):
         node = self.parse_factor()
         while self.peek()[0] in ("STAR", "SLASH"):
@@ -70,7 +67,6 @@ class Parser:
             node = BinOp(node, op, right)
         return node
 
-    # factor -> NUMBER | IDENT | '(' expr ')' | '-' factor
     def parse_factor(self):
         tok = self.peek()
         if tok[0] == "NUMBER":
@@ -86,6 +82,6 @@ class Parser:
         if tok[0] == "MINUS":
             self.eat("MINUS")
             node = self.parse_factor()
-            # unary minus -> BinOp(0 - node)
+
             return BinOp(Number(0), '-', node)
         raise SyntaxError(f"Unexpected token in factor: {tok}")
