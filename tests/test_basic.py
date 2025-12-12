@@ -1,4 +1,3 @@
-# tests/test_basic.py
 import io
 import sys
 from src.main import compile_and_run
