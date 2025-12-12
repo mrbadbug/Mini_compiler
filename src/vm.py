@@ -1,11 +1,10 @@
-# src/vm.py
 from typing import List, Tuple
 
 class VM:
     def __init__(self, code: List[Tuple]):
         self.code = code
         self.stack = []
-        self.vars = {}  # variable environment: name -> int
+        self.vars = {}
 
     def run(self):
         for instr in self.code:
@@ -42,7 +41,7 @@ class VM:
                 b = self.stack.pop(); a = self.stack.pop()
                 if b == 0:
                     raise ZeroDivisionError("Division by zero")
-                self.stack.append(a // b)  # integer division
+                self.stack.append(a // b)
 
             elif op == "PRINT":
                 if not self.stack:
