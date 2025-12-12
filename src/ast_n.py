@@ -1,4 +1,3 @@
-# src/ast.py
 from dataclasses import dataclass
 
 @dataclass
@@ -12,7 +11,7 @@ class Var:
 @dataclass
 class BinOp:
     left: object
-    op: str   # one of '+', '-', '*', '/'
+    op: str 
     right: object
 
 @dataclass
