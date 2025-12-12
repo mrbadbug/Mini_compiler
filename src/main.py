@@ -1,4 +1,3 @@
-# src/main.py
 import sys
 from lexer import tokenize
 from parser import Parser
