@@ -1,4 +1,3 @@
-# src/lexer.py
 import re
 from typing import Iterator, Tuple
 
