@@ -16,4 +16,4 @@ Built using:
 - Stack-based VM
 
 ## Run
-python main.py example1/example2.mc
+python main.py "cd: example1/example2.mc"
