@@ -1,6 +1,6 @@
 # Mini C-like Compiler in Python
 
-This project is a simple compiler that supports:
+**This project is a simple compiler that supports:**
 - Variables
 - Integer arithmetic
 - Operator precedence
@@ -8,12 +8,13 @@ This project is a simple compiler that supports:
 - Unary minus
 - print() statement
 
-Built using:
+**Built using:**
 - Lexer
 - Parser (recursive descent)
 - AST
 - Bytecode generator
 - Stack-based VM
 
-## Run
-python main.py "cd: example1/example2.mc"
+**Run**
+   ```bash
+   python main.py "cd: example1/example2.mc"
